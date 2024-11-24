@@ -16,9 +16,9 @@ class Solution {
             }
             }
             if(count%2==0){
-                return (long)sum;
+                return sum;
             }else{
-                return (long)sum-2*minVal;
+                return sum-2*minVal;
             }
         
     }
