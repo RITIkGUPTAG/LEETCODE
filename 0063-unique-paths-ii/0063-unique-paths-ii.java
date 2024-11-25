@@ -1,29 +1,37 @@
 class Solution {
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int m = obstacleGrid.length;
-        int n = obstacleGrid[0].length;
-
-        // Create a 1D dp array for space optimization
-        int[] dp = new int[n];
-
-      if (obstacleGrid[0][0] == 1) {
-    dp[0] = 0; // If the starting cell has an obstacle, no paths exist
-} else {
-    dp[0] = 1; // Otherwise, there's one way to start
-}
-
-
-        // Iterate over the grid
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (obstacleGrid[i][j] == 1) {
-                    dp[j] = 0; // If there's an obstacle, no path to this cell
-                } else if (j > 0) {
-                    dp[j] += dp[j - 1]; // Add paths from the left
+    public int uniquePathsWithObstacles(int[][] og) {
+        if(og[0][0]==1)
+            return 0;
+        
+        og[0][0]=1;
+        int m=og.length;
+        int n=og[0].length;
+        for(int i=1; i<m; i++){
+            if(og[i][0]==1){
+                og[i][0]=0;
+            }
+            else {
+                og[i][0]=og[i-1][0];
+        }
+    }
+    for(int j=1; j<n; j++){
+        if(og[0][j]==1){
+            og[0][j]=0;
+        }
+        else{
+            og[0][j] =og[0][j-1];
+        }
+    }
+        for(int i=1; i<m; i++){
+            for(int j=1; j<n; j++){
+                if(og[i][j]==1){
+                    og[i][j]=0;
+                }
+                else{
+                    og[i][j]=og[i-1][j]+og[i][j-1];
                 }
             }
         }
-
-        return dp[n - 1]; // The result is in the last cell
+        return og[m-1][n-1];
     }
 }
