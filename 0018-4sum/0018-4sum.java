@@ -3,11 +3,11 @@ class Solution {
         List<List<Integer>> result=new ArrayList<>();
         Arrays.sort(nums);
         for(int h=0; h<nums.length-3;h++){
-             if(h!=0 && nums[h]==nums[h-1]){
+             if(h>0 && nums[h]==nums[h-1]){
                 continue;
             }
         for(int i=h+1; i<nums.length-2; i++){
-            if(i!=h+1 && nums[i]==nums[i-1]){
+            if(i>h+1 && nums[i]==nums[i-1]){
                 continue;
             }
             int j=i+1;
