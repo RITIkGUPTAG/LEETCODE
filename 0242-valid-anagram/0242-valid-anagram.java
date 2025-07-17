@@ -5,7 +5,6 @@ class Solution {
             return false;
         }
         
-        
           char tem[] = s.toCharArray();
         Arrays.sort(tem);
    String n= new String(tem); 
