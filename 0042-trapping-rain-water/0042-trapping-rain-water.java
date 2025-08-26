@@ -19,7 +19,7 @@ class Solution {
             right[i] = Math.max(right[i + 1], height[i]);
         }
         
-        // Calculate trapped water
+  
         for (int i = 0; i < n; i++) {
             int minHeight = Math.min(left[i], right[i]);
             ans += minHeight - height[i];
